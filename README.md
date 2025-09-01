@@ -22,6 +22,12 @@ El portafolio permite:
 
 ---
 
+## 🖼 Captura de pantalla
+
+![Portafolio Preview](./public/preview.png) 
+
+---
+
 ## 🛠 Tecnologías
 
 | Frontend | Backend | Deploy |
