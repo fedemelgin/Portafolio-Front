@@ -10,7 +10,7 @@ import Loading from './loading'
 
 export default function ProjectsGrid() {
 
-    const { data: projects, loading, error } = useFetch<ProductStructure[]>("https://wkwdbjpv-3001.brs.devtunnels.ms/projects")
+    const { data: projects, loading, error } = useFetch<ProductStructure[]>(`${process.env.NEXT_PUBLIC_API_URL}/projects`)
 
     // Determina la cantidad de skeletons: usa la cantidad de proyectos si existe, sino 4 por defecto
     const skeletonCount = projects && projects.length ? projects.length : 4;
