@@ -1,57 +1,42 @@
-"use client";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState, RefObject } from "react";
 
-type Hover3DOptions = {
-  x?: number;
-  y?: number;
-  z?: number;
-};
+type Opts = { x?: number; y?: number; z?: number };
 
-export default function hover3d<T extends HTMLElement>(
-  ref: React.RefObject<T | null>,
-  { x = 0, y = 0, z = 0 }: Hover3DOptions
-) {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+export default function useHover3d(ref: RefObject<HTMLElement | null>, opts: Opts = {}) {
+    const { x = 20, y = 20, z = 0 } = opts;
+    const [transform, setTransform] = useState<string>("");
 
-  const handleMouseMove = (e: MouseEvent) => {
-    const el = ref.current;
-    if (!el) return; // Comprobación de null
+    useEffect(() => {
 
-    const { offsetWidth: width, offsetHeight: height } = el;
-    const { clientX, clientY } = e;
+        const el = ref.current;
+        if (!el) return;
 
-    const xVal = (clientX - width / 2) / width;
-    const yVal = (clientY - height / 2) / height;
+        function handleMouseMove(e: MouseEvent) {
+            const current = ref.current;
+            if (!current) return; // <-- evita 'possibly null'
+            const rect = current.getBoundingClientRect();
+            const px = (e.clientX - rect.left) / rect.width - 0.5;
+            const py = (e.clientY - rect.top) / rect.height - 0.5;
 
-    setCoords({ x: xVal, y: yVal });
-  };
+            const rotateY = px * x;
+            const rotateX = -py * y;
+            const translateZ = z;
 
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
+            setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`);
+        }
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return; // Comprobación de null
+        function handleMouseLeave() {
+            setTransform("");
+        }
 
-    el.addEventListener("mousemove", handleMouseMove);
-    el.addEventListener("mouseenter", handleMouseEnter);
-    el.addEventListener("mouseleave", handleMouseLeave);
+        el.addEventListener("mousemove", handleMouseMove);
+        el.addEventListener("mouseleave", handleMouseLeave);
 
-    return () => {
-      if (!el) return; // Comprobación también en cleanup
-      el.removeEventListener("mousemove", handleMouseMove);
-      el.removeEventListener("mouseenter", handleMouseEnter);
-      el.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [ref.current]); // Dependencia al elemento real
+        return () => {
+            el.removeEventListener("mousemove", handleMouseMove);
+            el.removeEventListener("mouseleave", handleMouseLeave);
+        };
+    }, [ref, x, y, z]);
 
-  const xTransform = isHovering ? coords.x * x : 0;
-  const yTransform = isHovering ? coords.y * y : 0;
-  const zTransform = isHovering ? z : 0;
-
-  return {
-    transform: `perspective(1000px) rotateX(${yTransform}deg) rotateY(${-xTransform}deg) translateZ(${zTransform}px)`,
-    transition: isHovering ? "none" : "all 0.5s ease",
-  };
+    return { transform };
 }

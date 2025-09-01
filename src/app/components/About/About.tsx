@@ -1,18 +1,18 @@
 "use client"
 import Image from "next/image"
 import { useRef } from "react";
-import hover3d from "@/app/utils/hover";
+import useHover3d from "@/app/utils/hover";
 
 export default function About() {
     const hero = useRef<HTMLDivElement>(null);
 
-    const hoverHero = hover3d(hero, {
+    const hoverHero = useHover3d(hero, {
         x: 30,
         y: -30,
         z: 5,
     });
 
-    const imageHover = hover3d(hero, {
+    const imageHover = useHover3d(hero, {
         x: 20,
         y: -5,
         z: 11,
