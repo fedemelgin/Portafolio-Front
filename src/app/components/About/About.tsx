@@ -1,9 +1,10 @@
 "use client"
 import Image from "next/image"
-import { motion, useAnimation, useInView } from "framer-motion"
+import { motion, useAnimation, useInView,Variants } from "framer-motion"
 import { useEffect, useRef } from "react"
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
+
 
 export default function About() {
 
@@ -16,6 +17,7 @@ export default function About() {
     const t = useTranslations("About")
     const cursos = t.raw("cursos");
     const locale = useLocale();
+
     useEffect(() => {
         if (isInView) {
             mainController.start("visible");
@@ -26,7 +28,7 @@ export default function About() {
         }
     }, [isInView,mainController,slideController]);
     
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: {},
         visible: {
             transition: {
@@ -43,7 +45,7 @@ export default function About() {
     //     }
     // };
 
-    const slideVariants = {
+    const slideVariants: Variants = {
     hidden: { 
         opacity: 0, 
         x: -60, 
