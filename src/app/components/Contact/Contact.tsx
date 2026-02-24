@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion'
 import useEmail from '@/app/hooks/useEmail';
+import { useTranslations } from 'next-intl'
 
 type TypeForm = {
   name: string;
@@ -14,6 +15,7 @@ type TypeForm = {
 export default function Contact() {
 
   const [form, setForm] = useState<TypeForm>({ name: '', email: '', subject: '', message: '' });
+  const t = useTranslations("contact");
 
   // agregar setStatus al destructuring
   const { sendEmail, status, setStatus, success, error, loading } = useEmail();
@@ -28,7 +30,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.subject || !form.message) {
-      setStatus('Por favor completa todos los campos.'); // ahora correcto
+      setStatus(t("error_message"));
       return;
     }
 
@@ -52,8 +54,8 @@ export default function Contact() {
             <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
           </svg>
         <div>
-        <p className="font-bold text-teal-900">SUCCESS</p>
-        <p className="text-sm text-teal-800">Your message has been sent</p>
+        <p className="font-bold text-teal-900">{t("status_ok")}</p>
+        <p className="text-sm text-teal-800">{t("status_ok_message")}</p>
         </div>
       </div>
     </div>
@@ -65,18 +67,18 @@ export default function Contact() {
         <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
       </svg>
       <div>
-        <p className="font-bold text-red-900">ERROR</p>
-        <p className="text-sm text-red-800">Mensaje no enviado</p>
+        <p className="font-bold text-red-900">{t("status_error")}</p>
+        <p className="text-sm text-red-800">{t("status_error_message")}</p>
       </div>
     </div>
   </div>
 )}
       
-    <section id="contact" className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-950 to-gray-800 ">
+    <section id="contact" className="flex items-center justify-center min-h-screen">
       <div className="flex flex-col justify-center items-center gap-6 ">
         {/* texto Contactme */}
         <div className="text-center p-2">
-          <motion.h2 ref={h2Ref} initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-4xl md:text-5xl font-bold text-sky-500 mb-4">Contact Me</motion.h2>
+          <motion.h2 ref={h2Ref} initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-4xl md:text-5xl font-bold text-sky-500 mb-4">{t("title")}</motion.h2>
         </div>
 
         <div className='flex flex-col md:flex-row gap-4 '>
@@ -224,6 +226,13 @@ export default function Contact() {
                 link: "https://linkedin.com",
                 hoverClass: "group-hover:text-blue-400",
                 borderLink:"hover:border-blue-500",
+              },
+              {
+                id: "icon-gmail",
+                text: "Gmail",
+                link: "https://mail.google.com/mail/?view=cm&fs=1&to=federicomelgin@gmail.com&su=Contacto%20desde%20tu%20portfolio&body=Hola%20Federico,",
+                hoverClass: "group-hover:text-yellow-400",
+                borderLink:"hover:border-yellow-500",
               },
             ].map((item) => (
               <li key={item.id} className=' m-0.5 w-[200px]'>

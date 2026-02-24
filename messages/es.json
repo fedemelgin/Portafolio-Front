@@ -1,0 +1,91 @@
+{
+  "Hero": {
+    "title": "Estudiante de Ingeniería en Sistemas",
+    "name": "Federico Hernan Melgin",
+    "subtitle": "Full Stack TypeScript & NestJS",
+    "cv": "Descargar CV"
+  },
+  "Navbar": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "About": {
+    "title": "Acerca de mí",
+    "description": "Estudiante de Ingeniería en Sistemas de Información, he desarrollado varios proyectos personales y académicos que me han permitido aplicar y reforzar mis conocimientos en desarrollo tanto",
+    "description_2": "desarrollo.",
+   "education": "Educación",
+   "educacion_uni": "Universidad Tecnológica Nacional (UTN)",
+   "educacion_title": "Ingeniería en Sistemas de Información",
+   "educacion_staus": "En curso",
+   "curso": "Cursos",
+   "cursos": [
+    {
+      "title": "Talento Tech – GCBA",
+      "description": "Curso Fullstack NodeJS",
+      "status": "finalizado"
+    },
+    {
+      "title": "Talento Tech – GCBA",
+      "description": "Curso Fullstack Python",
+      "status": "finalizado"
+    }
+   ],
+   "skills": "Habilidades Técnicas"
+  },
+  "PROJECTS": {
+    "projects": [
+      {
+        "id": 1,
+        "title": "E-commerce Full Stack",
+        "category": "Aplicación web",
+        "description": "Plataforma completa de e-commerce con autenticación, pagos y panel de administración.",
+        "image": "/assets/mock_1.png",
+        "technologies": ["Next.js", "NestJS", "PostgreSQL", "Stripe"],
+        "link": "https://github.com/fedemelgin/ecommerce",
+        "featured": true
+      },
+      {
+        "id": 2,
+        "title": "Task API",
+        "description": "API REST para la gestión de tareas con autenticación y autorización.",
+        "category": "Backend",
+        "image": "/assets/mock_1.png",
+        "technologies": ["NestJS", "TypeORM", "PostgreSQL"],
+        "link": "https://github.com/fedemelgin/task-api",
+        "featured": false
+      },
+      {
+        "id": 3,
+        "title": "Portfolio Personal",
+        "description": "Portfolio personal para mostrar mis proyectos y habilidades.",
+        "category": "Aplicación web",
+        "image": "/assets/mock_1.png",
+        "technologies": ["Next.js", "Tailwind", "Framer Motion"],
+        "link": "https://github.com/fedemelgin/mi-portafolio",
+        "featured": false
+      },
+      {
+        "id": 4,
+        "title": "Chat en Tiempo Real",
+        "description": "Aplicación de chat con WebSockets y autenticación.",
+        "category": "Aplicación web",
+        "image": "/assets/mock_1.png",
+        "technologies": ["Next.js", "NestJS", "Socket.IO"],
+        "link": "https://github.com/fedemelgin/chat-realtime",
+        "featured": true
+      }
+    ]
+  },
+  "button": {
+    "view_project": "Ver proyecto"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "error_message": "Por favor completa todos los campos.",
+    "status_ok": "Éxito",
+    "status_error": "Error",
+    "status_ok_message": "Mensaje enviado correctamente.",
+    "status_error_message": "Error al enviar el mensaje."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "Hero": {
+    "title": "Systems Engineering Student",
+    "name": "Federico Hernan Melgin",
+    "subtitle": "Full Stack TypeScript & NestJS",
+    "cv": "Download CV"
+  },
+  "Navbar": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact Me"
+  },
+  "About": {
+    "title": "About Me",
+    "description": "Information Systems Engineering Student, I have developed several personal and academic projects that have allowed me to apply and reinforce my knowledge in both frontend and backend development.",
+    "description_2": "development.",
+    "education": "Education",
+    "educacion_uni": "National Technological University (UTN)",
+    "educacion_title": "Information Systems Engineering",
+    "educacion_staus": "In progress",
+    "cursos": [
+    {
+      "title": "Talento Tech – GCBA",
+      "description": "Fullstack NodeJS Course",
+      "status": "completed"
+    },
+    {
+      "title": "Talento Tech – GCBA",
+      "description": "Fullstack Python Course",
+      "status": "completed"
+    }
+   ],
+   "skills": "Technical Skills"
+  },
+  "PROJECTS": {
+    "projects": [
+      {
+        "id": 1,
+        "title": "E-commerce Full Stack",
+        "category": "Web Application",
+        "description": "Complete e-commerce platform with authentication, payments and administration panel.",
+        "image": "/assets/mock_1.png",
+        "technologies": ["Next.js", "NestJS", "PostgreSQL", "Stripe"],
+        "link": "https://github.com/fedemelgin/ecommerce",
+        "featured": true
+      },
+      {
+        "id": 2,
+        "title": "Task API",
+        "description": "API REST for task management with authentication and authorization.",
+        "category": "Backend",
+        "image": "/assets/mock_1.png",
+        "technologies": ["NestJS", "TypeORM", "PostgreSQL"],
+        "link": "https://github.com/fedemelgin/task-api",
+        "featured": false
+      },
+      {
+        "id": 3,
+        "title": "Personal Portfolio",
+        "description": "Personal portfolio to show my projects and skills.",
+        "category": "Web Application",
+        "image": "/assets/mock_1.png",
+        "technologies": ["Next.js", "Tailwind", "Framer Motion"],
+        "link": "https://github.com/fedemelgin/mi-portafolio",
+        "featured": false
+      },
+      {
+        "id": 4,
+        "title": "Real Time Chat",
+        "description": "Chat application with WebSockets and authentication.",
+        "category": "Web Application",
+        "image": "/assets/mock_1.png",
+        "technologies": ["Next.js", "NestJS", "Socket.IO"],
+        "link": "https://github.com/fedemelgin/chat-realtime",
+        "featured": true
+      }
+    ]
+  },
+  "button": {
+    "view_project": "View project"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "error_message": "Please complete all fields.",
+    "status_success": "Message sent successfully.",
+    "status_error": "Error sending message.",
+    "status": "Success"
+  }
+}

@@ -55,7 +55,7 @@ export default function CardProject({ project } : { project: ProductStructure })
                             target="_blank" 
                             rel="noopener noreferrer"
                             title='Ver proyecto'
-                            className='text-cyan-400 hover:text-cyan-300 text-sm font-medium underline '
+                            className='text-cyan-400  hover:text-cyan-300 text-sm font-medium underline '
                         >
                             <ButtomProject />
                         </a>
