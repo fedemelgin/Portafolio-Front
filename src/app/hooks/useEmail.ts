@@ -1,4 +1,3 @@
-import { p } from 'framer-motion/client';
 import { useState } from 'react';
 
 type FormPayload = {
@@ -22,12 +21,13 @@ export default function useEmail() {
 
     try {
       const API_BASE = process.env.NEXT_PUBLIC_API_URL || '';
+      console.log("API_BASE", API_BASE);
       const res = await fetch(`${API_BASE}/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
     });
-
+    console.log("res", res);
 
       if (res.ok) {
         setStatus('¡Mensaje enviado!');
