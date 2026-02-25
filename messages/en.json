@@ -34,6 +34,8 @@
    "skills": "Technical Skills"
   },
   "PROJECTS": {
+    "title": "Projects",
+    "subtitle": "Some of the projects I've worked on",
     "projects": [
       {
         "id": 1,
@@ -85,6 +87,12 @@
     "error_message": "Please complete all fields.",
     "status_success": "Message sent successfully.",
     "status_error": "Error sending message.",
-    "status": "Success"
+    "status": "Success",
+    "enviar": "Send",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "placeholder": "Write your message here..."
   }
 }

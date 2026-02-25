@@ -15,6 +15,7 @@ type TypeForm = {
 export default function Contact() {
 
   const [form, setForm] = useState<TypeForm>({ name: '', email: '', subject: '', message: '' });
+
   const t = useTranslations("contact");
 
   // agregar setStatus al destructuring
@@ -90,6 +91,7 @@ export default function Contact() {
             <div className="relative w-60 group hover:ring-sky-500">
               <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-sky-400 to-sky-600 opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
               <input
+                disabled={loading}
                 type="text"
                 id="name"
                 name="name"
@@ -97,7 +99,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 placeholder=" "
-                className={`peer w-full pl-6 pr-4 pt-6 pb-2 text-sm bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 placeholder-transparent ${form.name ? 'bg-white' : 'bg-transparent'}`}
+                className={`peer w-full pl-6 pr-4 pt-6 pb-2 text-sm disabled:opacity-70 bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 placeholder-transparent ${form.name ? 'bg-white' : 'bg-transparent'}`}
               />
               <label
                     htmlFor="name"
@@ -109,7 +111,7 @@ export default function Contact() {
                         peer-focus:top-1 peer-focus:text-sm peer-focus:text-sky-500 peer-focus:font-semibold`
                     }
                     >
-                    Name
+                    {t("name")}
               </label>
             </div>
 
@@ -117,6 +119,7 @@ export default function Contact() {
             <div className="relative w-60 group hover:ring-sky-500">
               <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-sky-400 to-sky-600 opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
               <input
+                disabled={loading}
                 type="email"
                 id="email"
                 name="email"
@@ -124,7 +127,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 placeholder=" "
-                className={`peer w-full pl-6 pr-4 pt-6 pb-2 text-sm bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 placeholder-transparent ${form.email ? 'bg-white' : 'bg-transparent'}`}
+                className={`peer w-full pl-6 pr-4 pt-6 pb-2 text-sm disabled:opacity-70 bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 placeholder-transparent ${form.email ? 'bg-white' : 'bg-transparent'}`}
               />
               <label
                 htmlFor="email"
@@ -134,7 +137,7 @@ export default function Contact() {
                     : 'top-3.5 text-base'}
                   peer-focus:top-1 peer-focus:text-sm peer-focus:text-sky-500 peer-focus:font-semibold`}
               >
-                Email
+                {t("email")}
               </label>
             </div>
 
@@ -142,14 +145,15 @@ export default function Contact() {
             <div className="relative w-60 group hover:ring-sky-500">
               <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-sky-400 to-sky-600 opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
               <input
+                disabled={loading}
                 type="text"
                 id="subject"
                 name="subject"
                 required
                 value={form.subject}
-                onChange={handleChange}
+                onChange={handleChange} 
                 placeholder=" "
-                className={`peer w-full pl-6 pr-4 pt-6 pb-2 text-sm bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 placeholder-transparent ${form.subject ? 'bg-white' : 'bg-transparent'}`}
+                className={`peer w-full pl-6 pr-4 pt-6 pb-2 text-sm disabled:opacity-70 bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 placeholder-transparent ${form.subject ? 'bg-white' : 'bg-transparent'}`}
               />
               <label
                 htmlFor="subject"
@@ -161,7 +165,7 @@ export default function Contact() {
                     peer-focus:top-1 peer-focus:text-sm peer-focus:text-sky-500 peer-focus:font-semibold`
                 }
                 >
-                Subject
+                {t("subject")}
                 </label>
             </div>
 
@@ -169,13 +173,14 @@ export default function Contact() {
             <div className="relative w-60 group hover:ring-sky-500">
                 <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-sky-400 to-sky-600 opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
                 <textarea
+                    disabled={loading}
                     id="message"
                     name="message"
                     required
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Escribe tu mensaje aquí..."
-                    className={`peer w-full pl-6 pr-4 pt-2 pb-2 text-sm bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 resize-none
+                    placeholder={t("placeholder")}
+                    className={`peer w-full disabled:opacity-70 pl-6 pr-4 pt-2 pb-2 text-sm bg-transparent border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all duration-150 resize-none
                         ${form.message ? 'bg-white' : 'bg-transparent'}
                         placeholder:text-gray-500 placeholder:text-sm placeholder:font-normal`}
                     rows={4}
@@ -184,10 +189,16 @@ export default function Contact() {
 
             {/* Botón de envío */}
             <button
-              type="submit"
-              className="mt-4 px-6 py-2 bg-sky-500 text-white rounded-lg font-semibold hover:bg-sky-600 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
-                Enviar
-            </button>
+  type="submit"
+  disabled={loading}
+  className="mt-4 px-6 py-2 bg-sky-500 flex justify-center items-center text-white rounded-lg font-semibold hover:bg-sky-600 transition cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed min-w-[120px]"
+>
+  {loading ? (
+    <div className="w-6 h-6 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
+  ) : (
+    t("enviar")
+  )}
+</button>
           </form>
         </motion.div>
 

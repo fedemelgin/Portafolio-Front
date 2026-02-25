@@ -41,12 +41,14 @@ export default function Navbar() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const Language = locale === 'es' ? 'EN' : 'ES';
 
   const toggleLanguage = () => {
     const nextLocale = locale === 'es' ? 'en' : 'es';
     // Obtenemos el hash actual (ej: #about) para no perder la posición
     const hash = window.location.hash; 
     router.replace(`${pathname}${hash}`, { locale: nextLocale });
+
   };
 
   return (
@@ -81,7 +83,7 @@ export default function Navbar() {
       <button 
       onClick={toggleLanguage}
       className="cursor-pointer px-3 py-1 border border-sky-500 rounded text-sky-500 hover:bg-sky-500 hover:text-white transition-colors">
-      {locale.toUpperCase()}
+      {Language}
     </button>
       
         </div>
