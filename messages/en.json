@@ -37,47 +37,47 @@
     "title": "Projects",
     "subtitle": "Some of the projects I've worked on",
     "projects": [
-      {
-        "id": 1,
-        "title": "E-commerce Full Stack",
-        "category": "Web Application",
-        "description": "Complete e-commerce platform with authentication, payments and administration panel.",
-        "image": "/assets/mock_1.png",
-        "technologies": ["Next.js", "NestJS", "PostgreSQL", "Stripe"],
-        "link": "https://github.com/fedemelgin/ecommerce",
-        "featured": true
-      },
-      {
-        "id": 2,
-        "title": "Task API",
-        "description": "API REST for task management with authentication and authorization.",
-        "category": "Backend",
-        "image": "/assets/mock_1.png",
-        "technologies": ["NestJS", "TypeORM", "PostgreSQL"],
-        "link": "https://github.com/fedemelgin/task-api",
-        "featured": false
-      },
-      {
-        "id": 3,
-        "title": "Personal Portfolio",
-        "description": "Personal portfolio to show my projects and skills.",
-        "category": "Web Application",
-        "image": "/assets/mock_1.png",
-        "technologies": ["Next.js", "Tailwind", "Framer Motion"],
-        "link": "https://github.com/fedemelgin/mi-portafolio",
-        "featured": false
-      },
-      {
-        "id": 4,
-        "title": "Real Time Chat",
-        "description": "Chat application with WebSockets and authentication.",
-        "category": "Web Application",
-        "image": "/assets/mock_1.png",
-        "technologies": ["Next.js", "NestJS", "Socket.IO"],
-        "link": "https://github.com/fedemelgin/chat-realtime",
-        "featured": true
-      }
-    ]
+  {
+    "id": 1,
+    "title": "Store Management Platform",
+    "category": "Fullstack / Architecture",
+    "description": "Administrative system featuring RBAC roles, inventory management, advanced CRUD with pagination, and modular architecture in NestJS.",
+    "image": "/assets/mock_2.png",
+    "technologies": ["Angular", "NestJS", "TypeORM", "PostgreSQL", "JWT"],
+    "link": "https://github.com/fedemelgin/store-management-platform",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Full Stack E-commerce",
+    "category": "Web Application",
+    "description": "E-commerce platform featuring a dynamic shopping cart and seamless payment integration via Mercado Pago API.",
+    "image": "/assets/mock_1.png",
+    "technologies": ["React", "NestJS", "TypeScript", "TailwindCSS", "Mercado Pago"],
+    "link": "https://github.com/fedemelgin/ecommerce-front",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Operating System Simulator",
+    "category": "Low-Level Systems",
+    "description": "Custom implementation of Kernel, CPU, and Filesystem modules in C/Go. Includes process scheduling, memory management, and communication protocols.",
+    "image": "/assets/mock_3.png",
+    "technologies": ["C / Go", "Linux", "Sockets", "Operating Systems"],
+    "link": "https://github.com/fedemelgin/TP_SO",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Enterprise Appointment System (In Progress)",
+    "category": "Microservices",
+    "description": "Scalable SaaS-style architecture featuring an API Gateway and microservices communicating via RabbitMQ for appointment and notification management.",
+    "image": "/assets/mock_4.png",
+    "technologies": ["NestJS", "RabbitMQ", "Docker", "PostgreSQL", "Redis"],
+    "link": "https://github.com/fedemelgin/appointment-service",
+    "featured": true
+  }
+]
   },
   "button": {
     "view_project": "View project"
